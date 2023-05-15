@@ -1,3 +1,7 @@
+import datetime
+
+
+
 # la classe personne
 class Personne(object):
 
@@ -80,3 +84,96 @@ class Client(Personne):
     def __str__(self) -> str:
         return f"telephone : {self.__telephone}"\
         f"\ncourriel : {self.__courriel}"
+
+#  la classe reparation
+class Reparation(object):
+#  definition du constructeur
+    def __init__(self, code: int, description: str, montant: float, datereparation: datetime, codeemploye:int):
+
+        #  initialisation des attributs
+        self.set_code(code)
+        self.set_description(description)
+        self.set_montant(montant)
+        self.set_datereparation(datereparation)
+        self.set_codeemploye(codeemploye)
+
+    #  definition des methodes d'acces
+    def get_code(self)->int:
+        return self.__code
+    def set_code(self, value:int):
+        self.__code=value
+
+    def get_description(self)->str:
+        return self.__description
+    def set_description(self, value:str):
+        self.__description=value
+
+    def get_montant(self)->float:
+        return self.__montant
+    def set_montant(self, value:float):
+        self.__montant=value
+
+    def get_datereparation(self)->datetime:
+        return self.__datereparation
+    def set_datereparation(self, value:datetime):
+        self.__datereparation=value
+
+    def get_codeemploye(self)->int:
+        return self.__codeemploye
+    def set_codeemploye(self, value:int):
+        self.__codeemploye=value
+
+#  la classe voiture
+class Voiture(object):
+#  definition du constructeur
+    def __init__(self, numeroplaque: str, marque: str, modele: str, couleur: str, anne:int, proprietaire:Client, reparation: list[Reparation]):
+
+        #  initialisation des attributs
+        self.set_numeroplaque(numeroplaque)
+        self.set_marque(marque)
+        self.set_modele(modele)
+        self.set_couleur(couleur)
+        self.set_anne(anne)
+        self.set_proprietaire(proprietaire)
+        self.set_reparation(reparation)
+
+    #  definition des methodes d'acces
+    def get_numeroplaque(self)->str:
+        return self.__numeroplaque
+    def set_numeroplaque(self, value:str):
+        self.__numeroplaque=value
+
+    def get_marque(self)->str:
+        return self.__marque
+    def set_marque(self, value:str):
+        self.__marque=value
+
+    def get_modele(self)->str:
+        return self.__modele
+    def set_modele(self, value:str):
+        self.__modele=value
+
+    def get_couleur(self)->str:
+        return self.__couleur
+    def set_couleur(self, value:str):
+        self.__couleur=value
+
+    def get_anne(self)->int:
+        return self.__anne
+    def set_anne(self, value:int):
+        self.__anne=value
+
+    def get_proprietaire(self)->Client:
+        return self.__proprietaire
+    def set_proprietaire(self, value:Client):
+        self.__proprietaire=value
+
+    def get_reparation(self)->list[Reparation]:
+        return self.__reparation
+    def set_reparation(self, value:list[Reparation]):
+        self.__reparation=value
+
+    #  la methode ajouter reparation
+    def ajouterreparation(self, element:Reparation)->None:
+
+
