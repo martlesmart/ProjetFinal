@@ -180,6 +180,9 @@ class Voiture(object):
         Voiture.set_reparation(self, listreparation)
 
 #  la classe garage
+#  initialisation des 2 listes
+listemploye = [Employe(12, "concierge"),Employe(49, "éboueur")]
+listvoiture = []
 class Garage(object):
 #  definition du constructeur
     def __init__(self, nom: str, adresse: str, telephone: str, employes: list[Employe], voiture:list[Voiture]):
@@ -246,16 +249,15 @@ class Garage(object):
         return reponse
 
     def ajoutervoiture(self, element:Voiture)->None:
-        listvoiture = Garage.get_voiture()
         listvoiture.append(element)
         Garage.set_voiture(self, listvoiture)
 
     def getvoiture(self, numvoiture:str)->Voiture:
         return Garage.getvoiture(numvoiture)
 
-
     def ajouterreparation(self, numvoiture:str, reparation:Reparation)->None:
-        Voiture.set_reparation(numvoiture)
+        Voiture.ajouterreparation(Voiture(numvoiture), reparation)
 
     def getreparation(self, numvoiture:str)->list[Reparation]:
         return Garage.getreparation(self, numvoiture)
+
