@@ -1,6 +1,6 @@
 import datetime
 import jsonpickle
-
+from pathlib import Path
 
 # la classe personne
 class Personne(object):
@@ -175,7 +175,9 @@ class Voiture(object):
 
     #  la methode ajouter reparation
     def ajouterreparation(self, element:Reparation)->None:
-        Voiture.set_reparation(element)
+        listreparation=Voiture.get_reparation()
+        listreparation.append(element)
+        Voiture.set_reparation(self, listreparation)
 
 #  la classe garage
 class Garage(object):
@@ -215,3 +217,45 @@ class Garage(object):
     def set_voiture(self, value:list[Voiture]):
         self.__voiture=value
 
+    #  les methodes utilitaires
+    def serialisergarage(cls, element:Garage, fichier:str)->None:
+        #ouvrir le fichier (creer le stream)
+        path:Path=Path(fichier)
+        stream=path.open('w')
+        #serialiser la valeur vers un string sous le format json
+        strjson:str=jsonpickle.encode(element, indent=4,separators=(',',':'))
+        #  ecrire le string vers le fichier
+        stream.write(strjson)
+
+        #fermer le stream
+        stream.flush()
+        stream.close()
+
+    def deserialisergarage(cls, fichier:str)->Garage:
+        #ouvrir le fichier (creer le stream)
+        path:Path=Path(fichier)
+        stream=path.open('r')
+
+        strjson=stream.read()
+        #deserialiser la chaine en format json vers un objet vers un objet
+        reponse:object=jsonpickle.decode(strjson)
+
+        #fermer le stream
+        stream.close()
+        #retourner le resultat
+        return reponse
+
+    def ajoutervoiture(self, element:Voiture)->None:
+        listvoiture = Garage.get_voiture()
+        listvoiture.append(element)
+        Garage.set_voiture(self, listvoiture)
+
+    def getvoiture(self, numvoiture:str)->Voiture:
+        return Garage.getvoiture(numvoiture)
+
+
+    def ajouterreparation(self, numvoiture:str, reparation:Reparation)->None:
+        Voiture.set_reparation(numvoiture)
+
+    def getreparation(self, numvoiture:str)->list[Reparation]:
+        return Garage.getreparation(self, numvoiture)
