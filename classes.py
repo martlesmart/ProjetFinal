@@ -1,5 +1,5 @@
 import datetime
-
+import jsonpickle
 
 
 # la classe personne
@@ -175,5 +175,43 @@ class Voiture(object):
 
     #  la methode ajouter reparation
     def ajouterreparation(self, element:Reparation)->None:
+        Voiture.set_reparation(element)
 
+#  la classe garage
+class Garage(object):
+#  definition du constructeur
+    def __init__(self, nom: str, adresse: str, telephone: str, employes: list[Employe], voiture:list[Voiture]):
+
+        #  initialisation des attributs
+        self.set_nom(nom)
+        self.set_adresse(adresse)
+        self.set_telephone(telephone)
+        self.set_employes(employes)
+        self.set_voiture(voiture)
+
+    #  definition des methodes d'acces
+    def get_nom(self)->str:
+        return self.__nom
+    def set_nom(self, value:str):
+        self.__nom=value
+
+    def get_adresse(self)->str:
+        return self.__adresse
+    def set_adresse(self, value:str):
+        self.__adresse=value
+
+    def get_telephone(self)->str:
+        return self.__telephone
+    def set_telephone(self, value:str):
+        self.__telephone=value
+
+    def get_employes(self)->list[Employe]:
+        return self.__employes
+    def set_employes(self, value:list[Employe]):
+        self.__employes=value
+
+    def get_voiture(self)->list[Voiture]:
+        return self.__voiture
+    def set_voiture(self, value:list[Voiture]):
+        self.__voiture=value
 
