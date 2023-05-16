@@ -14,18 +14,18 @@ import os.path
 _script = sys.argv[0]
 _location = os.path.dirname(_script)
 
-import unknown_support
+#import unknown_support
 
 _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
 _fgcolor = '#000000'  # X11 color: 'black'
 _compcolor = 'gray40' # X11 color: #666666
 _ana1color = '#c3c3c3' # Closest X11 color: 'gray76'
 _ana2color = 'beige' # X11 color: #f5f5dc
-_tabfg1 = 'black' 
-_tabfg2 = 'black' 
-_tabbg1 = 'grey75' 
-_tabbg2 = 'grey89' 
-_bgmode = 'light' 
+_tabfg1 = 'black'
+_tabfg2 = 'black'
+_tabbg1 = 'grey75'
+_tabbg2 = 'grey89'
+_bgmode = 'light'
 
 _style_code_ran = 0
 def _style_code():
@@ -57,7 +57,7 @@ def _style_code():
     style.configure('Treeview',  font="TkDefaultFont")
     _style_code_ran = 1
 
-class Toplevel1:
+class ProjetFinalUI:
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
@@ -719,11 +719,11 @@ def _on_shiftmouse(event, widget):
             widget.xview_scroll(-1, 'units')
         elif event.num == 5:
             widget.xview_scroll(1, 'units')
-def start_up():
-    unknown_support.main()
-
-if __name__ == '__main__':
-    unknown_support.main()
+# def start_up():
+#     unknown_support.main()
+#
+# if __name__ == '__main__':
+#     unknown_support.main()
 
 if __name__ == '__main__':
     root=tk.Tk()
