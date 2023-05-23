@@ -11,6 +11,8 @@ import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
 
+#import classes
+
 _script = sys.argv[0]
 _location = os.path.dirname(_script)
 
@@ -610,6 +612,18 @@ class ProjetFinalUI:
         self.Scrolledtreeview1.column("Col4",minwidth="20")
         self.Scrolledtreeview1.column("Col4",stretch="1")
         self.Scrolledtreeview1.column("Col4",anchor="w")
+
+
+
+    #  coder les button
+        #  configurer le boutton deserialiser
+        #self.Button2.bind("<Button-1>", classes.Garage.deserialisergarage(cls, fichier=self.Entry4))
+        #  configurer le boutton serialiser
+        #self.Button3.bind("<Button-1>", classes.Garage.serialisergarage(cls, element= ,fichier=self.Entry4))
+
+
+
+
 
 # The following code is added to facilitate the Scrolled widgets you specified.
 class AutoScroll(object):

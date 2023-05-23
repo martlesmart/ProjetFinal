@@ -38,9 +38,10 @@ class Personne(object):
 #  la classe employé
 class Employe(Personne):
 #  definition du constructeur
-    def __init__(self, code = 0, fonction = ""):
+    def __init__(self, code=0, fonction=""):
 
         #  initialisation des attributs
+        super().__init__()
         self.set_code(code)
         self.set_fonction(fonction)
 
@@ -63,9 +64,10 @@ class Employe(Personne):
 #  la classe client
 class Client(Personne):
 #  definition du constructeur
-    def __init__(self, telephone = "", courriel = ""):
+    def __init__(self, telephone="", courriel=""):
 
         #  initialisation des attributs
+        super().__init__()
         self.set_telephone(telephone)
         self.set_courriel(courriel)
 
