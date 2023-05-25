@@ -11,7 +11,9 @@ import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
 
-#import classes
+import classes
+
+
 
 _script = sys.argv[0]
 _location = os.path.dirname(_script)
@@ -615,10 +617,17 @@ class ProjetFinalUI:
 
 
 
-    #  coder les button
-        #  configurer le boutton deserialiser
-        #self.BtnDesserialiser.bind("<Button-1>", classes.Garage.deserialisergarage(cls, fichier=self.EntryFichier))
-        #  configurer le boutton serialiser
+    #  coder les button----------------------------------------------------------------------------------------------
+
+
+    def créergarage(self):
+        garage = classes.Garage(str(self.EntryGarageNom),str(self.EntryGarageAddresse),str(self.EntryGarageTelephone),classes.listemploye,classes.listvoiture)
+
+        self.BtnCréerGarage.bind("<Button-1>", créergarage)
+
+        #  deserialiser
+        #self.BtnDesserialiser.bind("<Button-1>", classes.deserialisergarage(cls, fichier=self.EntryFichier))
+        #  serialiser
         #self.BtnSerialiser.bind("<Button-1>", classes.Garage.serialisergarage(cls, element=, fichier=self.EntryFichier))
 
 
